@@ -21,13 +21,6 @@ resource "kubernetes_pod_v1" "nexus" {
         container_port = 8081
       }
 
-      #   liveness_probe {
-      #         http_get {
-      #           path = "/"
-      #           port = 8080
-
-
-      #         }
     }
 
   }
@@ -56,9 +49,9 @@ resource "kubernetes_service" "nexussvc" {
 
 
 
-resource "kubernetes_service" "nexussvc" {
+resource "kubernetes_service" "nexussvcclusterip" {
   metadata {
-    name      = "nexussvc"
+    name      = "nexussvcclusterip"
     namespace = kubernetes_namespace.tools.id
   }
   spec {

@@ -9,7 +9,7 @@ resource "kubernetes_pod_v1" "nodejsapppod" {
 
   spec {
     container {
-      image = "mysql:latest" #new image is needed
+      image = "menna97/docker-jenkins-image" #new image is needed
       name  = "nodejsapppod"
 
       #   env {

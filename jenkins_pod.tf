@@ -9,7 +9,7 @@ resource "kubernetes_pod_v1" "jenkinspod" {
 
   spec {
     container {
-      image = "jenkins/jenkins:lts"
+      image = "menna97/docker-jenkins-image"
       name  = "jenkinspod"
 
       #   env {
