@@ -9,7 +9,7 @@ resource "kubernetes_pod_v1" "nodejsapppod" {
 
   spec {
     container {
-      image = "arwa98/hellonode" #new image is needed
+      image = "mysql:latest" #new image is needed
       name  = "nodejsapppod"
 
       #   env {

@@ -8,14 +8,18 @@ resource "kubernetes_pod_v1" "mysqlpod" {
   }
 
   spec {
+
     container {
       image = "mysql:latest"
       name  = "mysqlpod"
+      env_from {
+        secret_ref {
+          name = "dbcredentials"
+        }
 
-      env {
-        MYSQL_ROOT_PASSWORD = var.dbpass
-        MYSQL_DATABASE      = var.dbname
+
       }
+
 
       port {
         container_port = 3306
