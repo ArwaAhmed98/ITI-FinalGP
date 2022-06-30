@@ -52,3 +52,23 @@ resource "kubernetes_service" "nexussvc" {
     type = "NodePort"
   }
 }
+
+
+
+
+resource "kubernetes_service" "nexussvc" {
+  metadata {
+    name      = "nexussvc"
+    namespace = kubernetes_namespace.tools.id
+  }
+  spec {
+    selector = {
+      app = kubernetes_pod_v1.nexus.metadata.0.labels.app
+    }
+    session_affinity = "ClientIP"
+    port {
+      port = 8801
+    }
+    type = "ClusterIP"
+  }
+}
